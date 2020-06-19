@@ -26,3 +26,9 @@ The create a Deployment for both.
 ```bash
 mvn clean thorntail:run
 ```
+
+### Backend
+
+```bash
+mvn clean thorntail:run -Dthorntail.http.port=8081
+```

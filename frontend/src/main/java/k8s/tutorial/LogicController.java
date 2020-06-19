@@ -2,8 +2,9 @@ package k8s.tutorial;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.URISyntaxException;
-import java.net.URL;
+import java.util.Random;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,13 +29,21 @@ public class LogicController implements Serializable {
     @ConfigProperty(name = "BACKEND_URL", defaultValue = "http://localhost:8081")
     private String backend;
 
+    private Random waitTimeRandom;
+
     private String message;
+
+    @PostConstruct
+    public void setup() {
+        this.waitTimeRandom = new Random();
+    }
 
     public String call() {
         LOGGER.info("Calling callback!");
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpGet request = new HttpGet(backend);
+            int waitTime = this.waitTimeRandom.nextInt(500) + 500;
+            HttpGet request = new HttpGet(backend + "/call?wait=" + waitTime);
             request.addHeader("User-Agent", "Chrome");
 
             CloseableHttpResponse response = httpClient.execute(request);
