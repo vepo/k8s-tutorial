@@ -3,6 +3,7 @@ package k8s.tutorial;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -33,9 +34,12 @@ public class LogicController implements Serializable {
 
     private String message;
 
+    private String uid;
+
     @PostConstruct
     public void setup() {
         this.waitTimeRandom = new Random();
+        this.uid = UUID.randomUUID().toString();
     }
 
     public String call() {
@@ -62,5 +66,9 @@ public class LogicController implements Serializable {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getUid() {
+        return uid;
     }
 }

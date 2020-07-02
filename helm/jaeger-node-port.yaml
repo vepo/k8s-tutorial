@@ -1,0 +1,10 @@
+provisionDataStore:
+  cassandra: true
+  elasticsearch: false
+  
+storage:
+  type: cassandra
+
+query:
+  service:
+    type: NodePort
