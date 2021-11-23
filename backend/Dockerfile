@@ -1,4 +1,4 @@
-FROM maven:3-alpine as builder
+FROM maven:3.8.3-openjdk-17 as builder
 
 RUN mkdir /build
 WORKDIR /build
@@ -8,10 +8,10 @@ ADD src src
 
 RUN mvn clean package
 
-FROM azul/zulu-openjdk-alpine:8
+FROM openjdk:17-alpine
 
 RUN mkdir /app
 
-COPY --from=builder /build/target/backend-thorntail.jar /app/backend-thorntail.jar
+COPY --from=builder /build/target/quarkus-app /app
 
-CMD [ "java", "-Djava.net.preferIPv4Stack=true", "-Djava.net.preferIPv4Addresses=true", "-jar", "/app/backend-thorntail.jar" ]
+CMD [ "java", "-jar", "/app/quarkus-run.jar" ]
