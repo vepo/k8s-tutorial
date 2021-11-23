@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: k8s-tutorial
       role: backend
-  replicas: 10
+  replicas: 2
   template:
     metadata:
       labels:
@@ -42,7 +42,7 @@ spec:
     matchLabels:
       app: k8s-tutorial
       role: frontend
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
