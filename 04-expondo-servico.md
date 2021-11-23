@@ -1,6 +1,6 @@
 # Expondo um POD como Service
 
-[Anterior](/03-criando-pods.md)
+[Anterior](/03-criando-pods.md) [Próximo](/05-criando-deployments.md)
 
 PODs não tem conexão com o mundo externo. Qualquer interface (TCP ou UDP) deve ser declarada como serviço. Isso pode ser feito através de um YAML ou pela linha de comando. É preferível que seja feito por um arquivo YAML e versionado. Mas vamos começar expondo nosso serviço?
 

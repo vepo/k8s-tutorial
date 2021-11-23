@@ -20,3 +20,5 @@ Passos:
 2. [Building Blocks](/02-building-blocks.md)
 2. [Criando PODs](/03-criando-pods.md)
 4. [Expondo um POD como Service](/04-expondo-servico.md)
+5. [Criando Deployments](/05-criando-deployments.md)
+6. [Usando o Helm](/06-usando-o-helm.md)
