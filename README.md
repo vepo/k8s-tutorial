@@ -14,6 +14,10 @@
 3. Criar uma serviço para cada POD
 4. Criar um Deployment
 
+> **Aviso**
+>
+> Você vai precisar instalara o Docker e o Minikube. Recomendo a documentação oficial, pois depende do seu sistema operacional. Se eu fizer um roteiro, mês que vem está desatualizado. 😉
+
 Passos:
 
 1. [Criando imagens docker](/01-criando-imagens-docker.md)
